@@ -1,0 +1,300 @@
+/*@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');*/
+/*@import url('https://fonts.googleapis.com/css?family=Poiret+One');*/
+@import url('https://fonts.googleapis.com/css?family=Forum');
+body {
+  padding-top: 50px;
+  position: relative;
+  font-family: "Forum", cursive;
+}
+
+pre {
+  tab-size: 8;
+}
+
+.side-collapse-container{
+  width:100%;
+  position:relative;
+  left:0;
+  transition:left .4s;
+}
+.side-collapse-container.out{
+  left:250px;
+  opacity: 0.3;
+}
+.side-collapse {
+  top:60.8px;
+  bottom:0;
+  left:0;
+  width:250px;
+  position:fixed;
+  overflow:hidden;
+  transition:width .4s;
+}
+.side-collapse.in {
+  width:0;
+}
+
+.navbar-inverse {
+  background: #383838;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle {
+  background: #4A4742;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #F4EADF;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a{
+  color: #F4EADF;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover{
+  color: #BAAD96;
+}
+
+.logo {
+  margin: 8px auto;
+  max-width: 45px;
+}
+
+.clearfix {
+  clear: all;
+}
+
+.header {
+  height: 200px;
+}
+
+.header-content {
+  text-align: center;
+  margin: 2em auto;
+  font-size: 3em;
+}
+
+.serviceOption {
+  /*background: #f0e2a8;*/
+  color: #373737;
+  font-weight: 900;
+}
+
+.serviceOption a {
+  color: #373737;
+  font-family: 'Forum', cursive;
+}
+
+.option1 {
+  background: rgba(253, 180, 255, 0.8);
+  width: 75%;
+  /*transform: skew(-20deg) translateX(-25px);*/
+  -webkit-clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+}
+
+.option1:hover {
+  background: #fff68f;
+}
+
+.option1 .content {
+  /*transform: skew(20deg) translateX(25px);*/
+  margin-left: 15px;
+}
+
+.option1 .content h1 {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.choice_mua {
+  margin-top: 1.8em;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10em;
+  z-index: -1;
+  margin-left: -4em;
+}
+
+.option2 {
+  background: rgba(255, 246, 143, 0.8);
+  width: 75%;
+  /*transform: skew(-20deg) translateX(25px);*/
+  -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.option2:hover {
+  background: #fff68f;
+}
+
+.option2 .content {
+  text-align: right;
+  /*transform: skew(20deg) translateX(-25px);*/
+  margin-right: 15px;
+}
+
+.option2 .content h1 {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.choice_photo {
+  margin-top: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  width: 9em;
+  z-index: -1;
+  margin-left: 0.5em;
+  margin-right: -5em;
+}
+
+.join {
+  padding: 15px 0 30px 0;
+  background: #fae5d7;
+}
+
+.join p {
+  font-family: 'Forum', cursive;
+  font-size: 1.5em;
+}
+
+.joinButton {
+  margin-top: 5px;
+}
+
+.joinButton .btn {
+  color: #fff;
+  background: #dbad72;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+.joinButton .btn:hover {
+  color: #BAAD96;
+  background: #fff68f;
+}
+
+/*LIST*/
+.header-list {
+  width: 100%;
+  /*background: #F4EADF;*/
+  border-bottom: 2px solid #000;
+  margin: 30px auto;
+  /*padding: 0.3em;*/
+  text-align: center;
+  font-size: 2.5em;
+  font-family: 'Forum', cursive;
+}
+
+.panel-group {
+  float: left;
+  padding: 0;
+  margin-top: -2.5em;
+}
+
+.panel {
+  width: 46%;
+  padding: 0;
+  border: 2px solid #f3f3f3;
+  /*background: #fed;*/
+  float: left;
+  margin-top: 2em;
+  margin-right: 4%;
+  color: #373737;
+}
+
+.panel:hover {
+  background: rgba(254, 255, 216, 1);
+  transition: 0.3s;
+}
+
+.panel-group .panel + .panel {
+  margin-top: 2em;
+  margin-right: 0;
+  margin-left: 4%;
+}
+
+.list-photo {
+  max-width: 100%;
+  padding: 10px;
+}
+
+.nama {
+  margin-bottom: 0;
+}
+
+.header-talent {
+  margin: 2em;
+  margin-bottom: 0.5em;
+}
+
+.header-talent-content h1 {
+  margin: 0 auto;
+}
+
+.header-talent-content .price {
+  font-size: 1.5em;
+}
+
+.header-talent-content button {
+  align-self: center;
+}
+
+.header-talent-content .details {
+  margin-top: 1em;
+}
+
+.portofolio {
+  margin-top: 0.5em;
+  /*background: #fed;*/
+}
+
+.portofolio > h2 {
+  margin-bottom: -0.6em;
+}
+
+.porto {
+  box-shadow: 5px 5px 2px #888888;
+}
+
+.porto img {
+  margin: 0;
+  padding: 0em;
+}
+
+.booking-header {
+  margin-top: 0.5em;
+  padding-top: 1em;
+  margin-bottom: 3em;
+  /*padding-bottom: 1em;*/
+  background: #fed;
+}
+
+.booking-form {
+  /*background: #f0e2a8;*/
+  padding: 0.5em;
+}
+
+.submitBtn {
+  background: #c8e6d2;
+}
+
+.submitBtn:hover {
+  background: #dee777;
+}
+
+.thx-header {
+  margin-top: 2em;
+  font-family: 'Forum', cursive;
+  color: #e67e7e;
+}
+
+.thx {
+  margin-top: 2em;
+  margin-bottom: 3em;
+  min-height: 280px;
+  font-family: 'Forum', cursive;
+}
+
+@media screen and (min-width: 768px) {
+
+}
