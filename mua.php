@@ -42,15 +42,22 @@
       </div>
     </div>
   </header>
+  <?php
+  $idTalent = $_GET["id"];
+  require("connection.php");
+  $sql = "SELECT * FROM talent WHERE id=$idTalent";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc()
+  ?>
   <div class="container side-collapse-container">
     <div class="row header-talent">
       <img src="img/user_profile_female.jpg" alt="" class="list-photo img-circle">
       <div class="header-talent-content">
-        <h1 class="text-center">Irene Paulina</h1>
+        <h1 class="text-center"><?php echo $row["name"]; ?></h1>
         <p class="price text-center">Rp 300.000,-</p>
         <a href="booking.php"><button class="btn btn-lg btn-success col-xs-8 col-xs-offset-2">BOOK NOW!</button></a>
         <div class="clearfix"></div>
-        <p class="details text-center">Irene is a MUA based in Surabaya. Currently she is studying in Universitas Ciputra. She acquired her skills in MUA after she enrolled in the school of makeup by Ms Abc which is located in Surabaya.</p>
+        <p class="details text-center"><?php echo $row["description"]; ?></p>
       </div>
     </div>
     <div class="row list-content">
@@ -58,28 +65,25 @@
         <h2 class="text-center">Portofolio</h2>
         <div class="panel-sub">
           <ul class="list-inline panel-sub">
-            <li data-toggle="modal" data-target="#myModal" class="porto"><a href="#myGallery" data-slide-to="0"><img class="img-thumbnail" src="talents/MUA/mua_alexismua/1.jpg"></a></li>
+            <!-- <li data-toggle="modal" data-target="#myModal" class="porto"><a href="#myGallery" data-slide-to="0"><img class="img-thumbnail" src="talents/MUA/mua_alexismua/1.jpg"></a></li>
             <li data-toggle="modal" data-target="#myModal" class="porto"><a href="#myGallery" data-slide-to="1"><img class="img-thumbnail" src="talents/MUA/mua_alexismua/2.jpg"></a></li>
             <li data-toggle="modal" data-target="#myModal" class="porto"><a href="#myGallery" data-slide-to="2"><img class="img-thumbnail" src="talents/MUA/mua_alexismua/3.jpg"></a></li>
-            <li data-toggle="modal" data-target="#myModal" class="porto"><a href="#myGallery" data-slide-to="3"><img class="img-thumbnail" src="talents/MUA/mua_alexismua/4.jpg"></a></li>
+            <li data-toggle="modal" data-target="#myModal" class="porto"><a href="#myGallery" data-slide-to="3"><img class="img-thumbnail" src="talents/MUA/mua_alexismua/4.jpg"></a></li> -->
             <!--end of thumbnails-->
+
+            <?php
+            $sql = "SELECT * FROM portofolio WHERE id_talent=$idTalent";
+            $result = $conn->query($sql);
+            if ($result->num_rows >0) {
+              $counter=0;
+              while ($row = $result->fetch_assoc()) {
+                ?>
+                <li data-toggle="modal" data-target="#myModal" class="porto"><a href="#myGallery" data-slide-to="<?php echo $counter; $counter++; ?>"><img class="img-thumbnail" src="<?php echo $row["url"]; ?>"></a></li>
+                <?php
+              }
+            }
+            ?>
           </ul>
-        </div>
-        <div class="panel-sub">
-          <a href="mua.php" class="panel porto">
-            <img src="img/user_profile_female.jpg" alt="" class="img-thumbnail">
-            <!-- <div class="col-xs-12">
-              <p class="nama text-center">Jessica Silviana</p>
-              <p class="harga text-center">Rp 350.000,-</p>
-            </div> -->
-          </a>
-          <a href="mua.php" class="panel porto">
-            <img src="img/user_profile_female.jpg" alt="" class="img-thumbnail">
-            <!-- <div class="col-xs-12">
-              <p class="nama text-center">Hans Christian</p>
-              <p class="harga text-center">Rp 400.000,-</p>
-            </div> -->
-          </a>
         </div>
       </div>
     </div>
@@ -94,7 +98,6 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <div class="pull-left">My Gallery Title</div>
             <button type="button" class="close" data-dismiss="modal" title="Close"> <span class="glyphicon glyphicon-remove"></span></button>
           </div>
           <div class="modal-body">
@@ -103,28 +106,34 @@
             <!--begin carousel-->
             <div id="myGallery" class="carousel slide" data-interval="false">
               <div class="carousel-inner">
-                <div class="item active"> <img src="talents/MUA/mua_alexismua/1.jpg" alt="item0"></div>
-                <div class="item"> <img src="talents/MUA/mua_alexismua/2.jpg" alt="item1"></div>
-                <div class="item"> <img src="talents/MUA/mua_alexismua/3.jpg" alt="item2"></div>
-                <div class="item"> <img src="talents/MUA/mua_alexismua/4.jpg" alt="item3"></div>
-                <!--end carousel-inner--></div>
-                <!--Begin Previous and Next buttons-->
-                <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myGallery" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <!--end carousel--></div>
-                <!--end modal-body--></div>
-                <div class="modal-footer">
-                  <div class="pull-left">
-                    <small>Photographs by <a href="https://placeimg.com" target="new">placeimg.com</a></small>
-                  </div>
-                  <button class="btn-sm close" type="button" data-dismiss="modal">Close</button>
-                  <!--end modal-footer--></div>
-                  <!--end modal-content--></div>
-                  <!--end modal-dialoge--></div>
-                  <!--end myModal-->></div>
-                </div>
+                <?php
+                $sql = "SELECT * FROM portofolio WHERE id_talent=$idTalent";
+                $result = $conn->query($sql);
+                if ($result->num_rows >0) {
+                  $counter=0;
+                  while ($row = $result->fetch_assoc()) {
+                    if ($counter==0): ?>
+                    <div class="item active"> <img src="<?php echo $row["url"]; ?>" alt="photo"></div>  
+                    <?php $counter++; else: ?>
+                    <div class="item"> <img src="<?php echo $row["url"]; ?>" alt="photo"></div>
+                    <?php
+                  endif;
+                }
+              }
+              ?>
+            </div>
+            <!--Begin Previous and Next buttons-->
+            <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myGallery" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <!--end carousel--></div>
+            <!--end modal-body--></div>
 
-                <script>
-                  $(document).ready(function() {   
+            <script>
+              $(document).ready(function() {
+                    // resize thumbnail   
+                    var cw = $('.porto').width();
+                    $('.porto').css({'height':cw+'px'});
+
+                    // sideslider
                     var sideslider = $('[data-toggle=collapse-side]');
                     var sel = sideslider.attr('data-target');
                     var sel2 = sideslider.attr('data-target-2');

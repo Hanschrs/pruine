@@ -50,56 +50,49 @@
     </div>
     <div class="row list-content">
       <div class="col-xs-10 col-xs-offset-1 panel-group">
-        <div class="panel-sub">
-          <a href="mua.php" class="panel">
-            <img src="img/user_profile_female.jpg" alt="" class="list-photo">
-            <div class="col-xs-12">
-              <p class="nama text-center">Irene Paulina</p>
-              <p class="harga text-center">Rp 300.000,-</p>
-            </div>
-          </a>
-          <a href="mua.php" class="panel">
-            <img src="img/user_profile_female.jpg" alt="" class="list-photo">
-            <div class="col-xs-12">
-              <p class="nama text-center">Regina Martha</p>
-              <p class="harga text-center">Rp 400.000,-</p>
-            </div>
-          </a>
-        </div>
-        <div class="panel-sub">
-          <a href="mua.php" class="panel">
-            <img src="img/user_profile_female.jpg" alt="" class="list-photo">
-            <div class="col-xs-12">
-              <p class="nama text-center">Jessica Silviana</p>
-              <p class="harga text-center">Rp 350.000,-</p>
-            </div>
-          </a>
-          <a href="mua.php" class="panel">
-            <img src="img/user_profile_female.jpg" alt="" class="list-photo">
-            <div class="col-xs-12">
-              <p class="nama text-center">Hans Christian</p>
-              <p class="harga text-center">Rp 400.000,-</p>
-            </div>
-          </a>
+        <ul class="list-inline">
+          <?php
+          require("connection.php");
+          $sql = "SELECT * FROM talent WHERE job='mua'";
+          $result = $conn->query($sql);
+          if ($result->num_rows >0) {
+            while ($row = $result->fetch_assoc()) {
+              ?>
+              <li class="list">
+                <a href="mua.php?id=<?php echo $row["id"]; ?>" data-slide-to="0" class="panel">
+                  <img src="img/user_profile_female.jpg" alt="" class="list-photo">
+                  <div class="col-xs-12">
+                    <p class="nama text-center"><?php echo $row["name"];?></p>
+                    <!-- <p class="harga text-center">Rp 300.000,-</p> -->
+                  </div>
+                </a>
+              </li>
+              
+                <!-- <a href="mua.php" class="panel">
+                </a> -->
+                <?php
+              }
+            }
+            ?>
+          </ul>
         </div>
       </div>
+      <div class="row text-center join">
+        <p>MUA or Photographer?</p>
+        <div class="joinButton"><button class="btn btn-lg">Join Us!</button></div>
+      </div>
     </div>
-    <div class="row text-center join">
-      <p>MUA or Photographer?</p>
-      <div class="joinButton"><button class="btn btn-lg">Join Us!</button></div>
-    </div>
-  </div>
 
-  <script>
-    $(document).ready(function() {   
-      var sideslider = $('[data-toggle=collapse-side]');
-      var sel = sideslider.attr('data-target');
-      var sel2 = sideslider.attr('data-target-2');
-      sideslider.click(function(event){
-        $(sel).toggleClass('in');
-        $(sel2).toggleClass('out');
+    <script>
+      $(document).ready(function() {   
+        var sideslider = $('[data-toggle=collapse-side]');
+        var sel = sideslider.attr('data-target');
+        var sel2 = sideslider.attr('data-target-2');
+        sideslider.click(function(event){
+          $(sel).toggleClass('in');
+          $(sel2).toggleClass('out');
+        });
       });
-    });
-  </script>
-</body>
-</html>
+    </script>
+  </body>
+  </html>

@@ -1,5 +1,3 @@
-/*@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');*/
-/*@import url('https://fonts.googleapis.com/css?family=Poiret+One');*/
 @import url('https://fonts.googleapis.com/css?family=Forum');
 body {
   padding-top: 50px;
@@ -86,10 +84,10 @@ pre {
 
 .option1 {
   background: rgba(253, 180, 255, 0.8);
-  width: 75%;
+  width: 65%;
   /*transform: skew(-20deg) translateX(-25px);*/
-  -webkit-clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
-  clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+/*  -webkit-clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);*/
 }
 
 .option1:hover {
@@ -102,25 +100,26 @@ pre {
 }
 
 .option1 .content h1 {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .choice_mua {
   margin-top: 1.8em;
   display: inline-block;
   vertical-align: middle;
-  width: 10em;
+  width: 29%;
   z-index: -1;
-  margin-left: -4em;
+  padding-left: 3%;
+  padding-right: : 3%;
 }
 
 .option2 {
   background: rgba(255, 246, 143, 0.8);
-  width: 75%;
+  width: 65%;
   /*transform: skew(-20deg) translateX(25px);*/
-  -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+/*  -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);*/
 }
 
 .option2:hover {
@@ -134,18 +133,18 @@ pre {
 }
 
 .option2 .content h1 {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .choice_photo {
-  margin-top: 1em;
+  margin-top: 1.9em;
   display: inline-block;
   vertical-align: middle;
-  width: 9em;
+  width: 29%;
+  padding-left: 6%;
+  padding-right: 0;
   z-index: -1;
-  margin-left: 0.5em;
-  margin-right: -5em;
 }
 
 .join {
@@ -192,14 +191,40 @@ pre {
 }
 
 .panel {
-  width: 46%;
   padding: 0;
   border: 2px solid #f3f3f3;
-  /*background: #fed;*/
   float: left;
   margin-top: 2em;
   margin-right: 4%;
   color: #373737;
+}
+
+.list {
+  padding: 0;
+  float: left;
+  margin: 1em 2%;
+  color: #373737;
+  overflow: hidden;
+}
+
+.list .panel {
+  padding: 0;
+  border: 2px solid #f3f3f3;
+  float: left;
+  margin-top: 2em;
+  color: #373737;
+}
+
+.list a {
+  margin: 0;
+  padding: 0;
+}
+
+.list img {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .panel:hover {
@@ -207,11 +232,11 @@ pre {
   transition: 0.3s;
 }
 
-.panel-group .panel + .panel {
+/*.panel-group .panel + .panel {
   margin-top: 2em;
   margin-right: 0;
   margin-left: 4%;
-}
+}*/
 
 .list-photo {
   max-width: 100%;
@@ -220,6 +245,7 @@ pre {
 
 .nama {
   margin-bottom: 0;
+  font-size: 1.8em;
 }
 
 .header-talent {
@@ -253,14 +279,15 @@ pre {
 }
 
 .porto {
-  box-shadow: 5px 5px 2px #888888;
+  /*box-shadow: 5px 5px 2px #888888;*/
   width: 46%;
   padding: 0;
   /*border: 2px solid #f3f3f3;*/
   /*background: #fed;*/
   float: left;
-  margin: 2em 2%;
+  margin: 1em 2%;
   color: #373737;
+  overflow: hidden;
 }
 
 .porto a {
@@ -273,7 +300,27 @@ pre {
 .porto img {
   margin: 0;
   padding: 0;
-  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.modal-content {
+  margin-top: 2em;
+  background: transparent;
+}
+
+.modal-header {
+  padding: 5px;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.glyphicon-remove {
+  font-size: 2em;
+  color: white;
+  opacity: 1;
 }
 
 .booking-header {
